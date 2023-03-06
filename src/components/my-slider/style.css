@@ -1,0 +1,166 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+body{
+  background-color: #333;
+}
+
+.wrapper {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.wrapper .wrap{
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  padding: 40px 20px;
+  margin: auto;
+}
+
+.arrow {
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background-color: #fff;
+  cursor: pointer;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all .3s ease-in-out;
+  z-index: 200;
+}
+
+.arrow.left{
+  left: 10px;
+}
+
+.arrow.right{
+  right: 10px;
+}
+
+.arrow:hover{
+  background-color: red;
+}
+
+.dots{
+  position: absolute;
+  left: 0;
+  bottom: 60px;
+  list-style: none;
+  width: 100%;
+  text-align: center;
+  display: block;
+  z-index: 250;
+  height: 12px;
+}
+
+.dot{
+  position: relative;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid #eee;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: all .5s ease-in-out;
+}
+
+.dot.active, .dot:hover {
+  background: #ea830e;
+  border-color: #ea830e;
+}
+
+.dot.active{
+  animation: testim-scale .5s ease-in-out forwards;
+}
+
+.cont {
+  display: flex;
+  /*justify-content: space-between;*/
+  width: 90%;
+  position: relative;
+  overflow: hidden;
+  gap: 500px;
+  margin: 0 auto;
+}
+
+
+.cont > div {
+  position: relative;
+  padding: 10px 30px 70px;
+}
+
+
+.cont > div.active{
+  position: absolute;
+  width: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 200;
+  animation: slide-scale .5s ease-in-out;
+  opacity: 1;
+  visibility: visible;
+}
+
+.cont > div.inactive{
+  animation: slide-s .3s ease-in-out;
+}
+
+.slider{
+  width: 300px;
+  background-color: blue;
+  /* прозрачный текст с обводкой */
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: .5px red;
+  font-size: 40px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+
+@keyframes testim-scale {
+  0%{
+    box-shadow: 0px 0px 0px 0px #eee;
+  }
+  35%{
+    box-shadow: 0px 0px 10px 5px #eee;
+  }
+  70%{
+    box-shadow: 0px 0px 10px 5px #ea830e;
+  }
+  100%{
+    box-shadow: 0px 0px 0px 0px #ea830e;
+  }
+}
+@keyframes slide-scale {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+@keyframes slide-s {
+  0%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 0;
+    transform: scale(0);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1);
+  }
+} 

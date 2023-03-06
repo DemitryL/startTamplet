@@ -1,0 +1,147 @@
+@mixin h1($color: $white){
+  font-weight: 700;
+  font-size: 7.2rem;
+  line-height: 119%;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $color;
+}
+
+@mixin h2($color: $black, $align: center){
+  font-weight: 600;
+  font-size: 3.6rem;
+  line-height: 119%;
+  color: $black;
+  text-align: $align;
+}
+
+@mixin h3($color: #101010, $align: center){
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 122%;
+  text-align: $align;
+  color: $color;
+}
+
+@mixin p1($color: #101010, $align: center){
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 150%;
+  text-align: $align;
+  color: $color;
+}
+
+@mixin p2($color: $black){
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 140%;
+  text-align: justify;
+  color: $color;
+}
+
+@mixin lead($color: $white, $align: center) {
+  font-weight: 600;
+  font-size: 2.4rem;
+  line-height: 150%;
+  text-align: $align;
+  color: $color;
+}
+
+@mixin img($width, $heigth){
+  position: relative;
+  width: $width;
+  height: $heigth;
+  overflow: hidden;
+  img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+@mixin section($pt: 5rem, $pb: 5rem){
+  padding: $pt $cont-s-padding $pb;
+}
+
+@mixin btn($color: $white, $bgcolor: $white){
+  display: inline-block;
+  color: $color;
+  background-color: $bgcolor;
+
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 121%;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  user-select: none;
+
+  &:hover{
+    background-color: darken($bgcolor, 20%);
+  }
+}
+
+%input{
+  background-color: $white;
+  color: $black;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 119%;
+  padding: 2rem 3rem;
+  border: 1px solid #333;
+  border-radius: 0.6rem;
+  &::placeholder{
+    color: rgba(19, 39, 67, 0.5);
+  }
+}
+
+%textarea{
+  @extend %input;
+
+  resize: none;
+  height: 7rem;
+
+  &:focus-visible{
+    outline: none;
+  }
+}
+
+
+
+  
+/* Site adaptive */
+@mixin respond($breakpoint){
+  @if $breakpoint == phone {
+    @media only screen and (max-width: $breakpoint480){
+      @content
+    }
+  };
+
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: $breakpoint768){
+      @content
+    }
+  };
+
+  @if $breakpoint == lp-desktop {
+    @media only screen and (max-width: $breakpoint992){
+      @content
+    }
+  };
+
+  @if $breakpoint == desktop {
+    @media only screen and (max-width: $breakpoint1200){
+      @content
+    }
+  };
+
+  @if $breakpoint == big-screen {
+    @media only screen and (min-width: $breakpoint1450){
+      @content
+    }
+  }
+}

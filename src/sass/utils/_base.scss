@@ -1,0 +1,65 @@
+html {
+  font-size: 62.5%;
+  scroll-padding-top: 9rem;
+  scroll-behavior: smooth;
+  @include respond(phone){
+    font-size: 37.5%;
+  }
+  @include respond(tablet){
+    font-size: 43.75%;
+  }
+  @include respond(lp-desktop){
+    font-size: 50%;
+  }
+  @include respond(big-screen){
+    font-size: 75%;
+  }
+}
+
+body{
+  font-family: $body-font;
+  background-color: $body-bg;
+  color: $body-color;
+}
+
+body._lock{
+  overflow: hidden;
+}
+
+html, body{
+  height: 100%;
+}
+
+.wrapper{
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.page{
+  flex: 1 1 auto;
+}
+.container{
+  max-width: calc( ($cont-width + $cont-padding) / 10) + rem;
+  margin: 0 auto;
+  box-sizing: content-box;
+}
+
+.lock-padding{
+  padding-right: 1.5rem;
+}
+
+@media only screen and (min-width: 992px) {
+  ::-webkit-scrollbar{
+    width: .8rem;
+  }
+  
+  ::-webkit-scrollbar-track{
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb{
+    background: #fff;
+    border-radius: 5rem;
+  } 
+}

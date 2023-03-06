@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<include src="./html/_head.html"></include>
+<body>
+  <div class="wrapper"> 
+    <!-- sroll top -->
+    <a href="#" class="scrolltop" id="scroll-top">
+      <span class="scrolltop__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path d="M233.4 105.4c12.5-12.5 32.8-12.5 45.3 0l192 192c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L256 173.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l192-192z"/>
+        </svg>
+      </span>
+    </a>
+    <!--header-->
+    <include src="./html/_header.html"></include>
+    <!--main-->
+    <main class="page">
+      <section class="page__hero hero">
+        <div class="hero__container container">
+          
+        </div>
+      </section>
+
+    </main>
+    <!--footer-->
+    <include src="./html/_footer.html"></include>
+  </div>
+
+  <div id="popup" class="popup">
+    <div class="popup__body">
+      <div class="popup__content">
+        <a href="#" class="popup__close close-popup">&#215</a>
+        <div class="popup__title">Login</div>
+        <div class="popup__text">
+          <form action="#">
+            <div class="inputbox">
+              <input type="email" required>
+              <label for="">Email</label>
+            </div>
+            <div class="inputbox">
+              <input type="password" required>
+              <label for="">Password</label>
+            </div>
+            <div class="forget">
+              <label for="checkForm"><input id="checkForm" type="checkbox">Remember Me <a href="#">Forget Password</a></label>
+            </div>
+            <button class="login-btn">Login</button>
+            <div class="register">
+              <p>Don't have a account <a href="#">Register</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div> 
+  </div>
+
+  
+  <script src="./js/script.min.js" ></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .8);
+  opacity: 0;
+  visibility: hidden;
+  /* sroll popup */
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 110;
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  &__title {
+    font-size: 4rem;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  &__content {
+    position: relative;
+    background-color: $white;
+    color: #333;
+    max-width: 80%;
+    padding: 3rem;
+    border-radius: 1rem;
+    transition: all .5s ease 0s;
+    opacity: 0;
+    transform: perspective(60rem) translate(0px, -100%) rotateX(45deg);
+  }
+  &__content_image {
+    padding: 0;
+  }
+  &__image {
+    img {
+      max-width: 100%;
+      vertical-align: top;
+    }
+  }
+  &__close {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    font-size: 4rem;
+    color: $black;
+    text-decoration: none;
+  }
+}
+
+.popup.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup.open .popup__content {
+  transform: perspective(60rem) translate(0px, 0%) rotateX(0deg);
+  opacity: 1;
+}
+
+.inputbox{
+  position: relative;
+  margin: 3rem 0;
+  width: 31rem;
+  border-bottom: 2px solid $black;
+}
+
+.inputbox label{
+  position: absolute;
+  top: 50%;
+  left: .5rem;
+  transform: translateY(-50%);
+  color: $black;
+  font-size: 1.5rem;
+  pointer-events: none;
+  transition: .5s;
+}
+
+input:focus ~ label,
+input:valid ~ label{
+  top: -.5rem;
+}
+
+.inputbox input{
+  width: 100%;
+  height: 5rem;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1.6rem;
+  padding: 0 3.5rem 0 .5rem;
+  color: $black;
+}
+
+.forget{
+  margin: -1.5rem 0 1.5rem;
+  font-size: 1.5rem;
+  color: $black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.forget label input{
+  margin-right: 3px;
+}
+
+.forget label a{
+  color: $black;
+  text-decoration: none;
+}
+
+.forget label a:hover{
+  text-decoration: underline;
+}
+
+.login-btn{
+  width: 100%;
+  height: 4rem;
+  border-radius: 4rem;
+  background: $black;
+  color: $white;
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.register{
+  font-size: 1.4rem;
+  color: $black;
+  text-align: center;
+  margin: 2.5rem 0 1rem;
+}
+
+.register p a{
+  text-decoration: none;
+  color: $black;
+  font-weight: 600;
+}
+
+.register p a:hover{
+  text-decoration: underline;
+}
+
+#checkForm{
+  cursor: pointer;
+}

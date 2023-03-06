@@ -1,0 +1,132 @@
+.menu{
+  &__body{
+    @include respond(tablet){
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      background-color: $black;
+      transition: .4s;
+      z-index: 110;
+      opacity: 0;
+      visibility: hidden;
+      /* === show-menu === */
+      &.show-menu{
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+  &__item{
+    @include respond(tablet){
+      &:not(:last-child){
+        margin-bottom: 2.5rem;
+      }
+    }
+  }
+  &__list{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    @include respond(tablet){
+      display: block;
+      text-align: center;
+    }
+  }
+  
+  &__link{
+    font-size: 1.8rem;
+    color: $white;
+    transition: .3s;
+    &:hover{
+      color: $white;
+    }
+    /* === active menu === */
+    &.active-link{
+      position: relative;
+      &::after{
+        content: '';
+        position: absolute;
+        bottom: -.7rem;
+        left: 0;
+        width: 65%;
+        height: .3rem;
+        background-color: $white;
+      }
+    }
+  }
+  &__burger {
+    transition: all .1s ease;
+    @include respond(tablet){
+      position: relative;
+      width: 2.5rem;
+      height: 2rem;
+      cursor: pointer;
+      z-index: 110;
+      & span, span::before, span::after{
+        position: absolute;
+        top: 50%;
+        left: 0;
+        display: inline-block;
+        width: 100%;
+        height: .2rem;
+        background-color: $white;
+        transform: translateY(-50%);
+        transition: .3s;
+      }
+      & span::before, span::after{
+        content: "";
+      }
+      & span::before{
+        top: -.6rem;
+      }
+      & span::after{
+        top: .8rem;
+      }
+      &.burger-active{
+        z-index: 111;
+        & span {
+          background-color: transparent;
+        }
+        & span::before{
+          top: 0;
+          transform: rotate(45deg);
+        }
+        & span::after{
+          top: 0;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+}
+
+
+
+
+/* scroll top */
+.scrolltop{
+  position: fixed;
+  right: 1rem;
+  bottom: -20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem;
+  background: rgba(123,111,113,.7);
+  border-radius: .5rem;
+  z-index: 10;
+  transition: .4s;
+  visibility: hidden;
+  &:hover{
+    background-color: #333;
+  }
+  &.show-scroll{
+    visibility: visible;
+    bottom: 1.5rem;
+  }
+}
